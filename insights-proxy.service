@@ -1,0 +1,9 @@
+[Unit]
+Description=Registrations listener.
+
+[Service]
+Type=simple
+ExecStart=/bin/bash /opt/insights-proxy/callback.sh
+
+[Install]
+WantedBy=multi-user.target

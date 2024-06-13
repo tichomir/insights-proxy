@@ -1,0 +1,9 @@
+#!/bin/bash
+
+
+## Set the proxy hostname for RHSM
+sed -i "s/proxy_hostname\s*=.*$/proxy_hostname = $PROXY/g" /etc/rhsm/rhsm.conf
+sed -i 's/proxy_port\s*=.*$/proxy_port = 3128/g' /etc/rhsm/rhsm.conf
+
+## Set the proxy for Insights client
+sed -i 's/^.*proxy\s*=.*$/proxy=http\:\/\/'$PROXY'\:3128/g' /etc/insights-client/insights-client.conf
